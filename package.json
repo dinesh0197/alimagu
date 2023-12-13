@@ -8,7 +8,7 @@
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi",
-    "prod": "strapi build && strapi"
+    "prod": "strapi build && strapi start"
   },
   "devDependencies": {},
   "dependencies": {
