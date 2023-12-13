@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "competition_outcomes",
+  "info": {
+    "singularName": "competition-outcome",
+    "pluralName": "competition-outcomes",
+    "displayName": "Competition outcome"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "blocks"
+    },
+    "title": {
+      "type": "text"
+    }
+  }
+}

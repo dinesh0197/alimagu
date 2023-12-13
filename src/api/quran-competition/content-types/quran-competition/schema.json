@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "quran_competitions",
+  "info": {
+    "singularName": "quran-competition",
+    "pluralName": "quran-competitions",
+    "displayName": "quran competition"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "blocks"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "seminars_workshops",
+  "info": {
+    "singularName": "seminars-workshop",
+    "pluralName": "seminars-workshops",
+    "displayName": "Seminars  Workshop"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "title": {
+      "type": "text"
+    },
+    "description": {
+      "type": "blocks"
+    }
+  }
+}
