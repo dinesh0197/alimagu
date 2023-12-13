@@ -30,7 +30,7 @@
       "type": "date"
     },
     "description": {
-      "type": "blocks"
+      "type": "text"
     }
   }
 }

@@ -4,17 +4,18 @@
   "info": {
     "singularName": "competition-outcome",
     "pluralName": "competition-outcomes",
-    "displayName": "Competition outcome"
+    "displayName": "Competition outcome",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "description": {
-      "type": "blocks"
-    },
     "title": {
+      "type": "text"
+    },
+    "description": {
       "type": "text"
     }
   }

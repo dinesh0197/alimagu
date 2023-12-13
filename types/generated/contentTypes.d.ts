@@ -683,13 +683,14 @@ export interface ApiAboutUsAboutUs extends Schema.CollectionType {
     singularName: 'about-us';
     pluralName: 'about-uses';
     displayName: 'about us';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    description: Attribute.Blocks;
     image: Attribute.Media;
+    description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -715,13 +716,14 @@ export interface ApiCompetitionOutcomeCompetitionOutcome
     singularName: 'competition-outcome';
     pluralName: 'competition-outcomes';
     displayName: 'Competition outcome';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    description: Attribute.Blocks;
     title: Attribute.Text;
+    description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -746,13 +748,14 @@ export interface ApiContactContact extends Schema.CollectionType {
     singularName: 'contact';
     pluralName: 'contacts';
     displayName: 'contact';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     image: Attribute.Media;
-    description: Attribute.Blocks;
+    description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -777,13 +780,14 @@ export interface ApiHomeHome extends Schema.CollectionType {
     singularName: 'home';
     pluralName: 'homes';
     displayName: 'Home ';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    description: Attribute.Blocks;
     image: Attribute.Media;
+    description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -807,9 +811,9 @@ export interface ApiMembershipMembership extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String;
-    description: Attribute.Blocks;
     membership_count: Attribute.Integer;
     image: Attribute.Media;
+    description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -840,11 +844,11 @@ export interface ApiNewsLetterNewsLetter extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    description: Attribute.Blocks;
     image: Attribute.Media;
     title: Attribute.String;
     release_date: Attribute.Date;
     youtube_link: Attribute.String;
+    description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -869,6 +873,7 @@ export interface ApiOurLeadershipOurLeadership extends Schema.CollectionType {
     singularName: 'our-leadership';
     pluralName: 'our-leaderships';
     displayName: 'Our leadership';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -876,8 +881,8 @@ export interface ApiOurLeadershipOurLeadership extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     role: Attribute.String;
-    description: Attribute.RichText;
     avatar: Attribute.Media;
+    description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -912,7 +917,7 @@ export interface ApiPublicationsPagePublicationsPage
     title: Attribute.String;
     image: Attribute.Media;
     publication_date: Attribute.Date;
-    description: Attribute.Blocks;
+    description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -937,13 +942,14 @@ export interface ApiQuranChallengeQuranChallenge extends Schema.CollectionType {
     singularName: 'quran-challenge';
     pluralName: 'quran-challenges';
     displayName: 'Quran challenge';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    description: Attribute.Blocks;
     image: Attribute.Media;
+    description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -968,13 +974,14 @@ export interface ApiQuranClassQuranClass extends Schema.CollectionType {
     singularName: 'quran-class';
     pluralName: 'quran-classes';
     displayName: 'quran class';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    description: Attribute.Blocks;
     image: Attribute.Media;
+    description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1000,13 +1007,14 @@ export interface ApiQuranCompetitionQuranCompetition
     singularName: 'quran-competition';
     pluralName: 'quran-competitions';
     displayName: 'quran competition';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    description: Attribute.Blocks;
     image: Attribute.Media;
+    description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1032,6 +1040,7 @@ export interface ApiSeminarsWorkshopSeminarsWorkshop
     singularName: 'seminars-workshop';
     pluralName: 'seminars-workshops';
     displayName: 'Seminars  Workshop';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1039,7 +1048,7 @@ export interface ApiSeminarsWorkshopSeminarsWorkshop
   attributes: {
     image: Attribute.Media;
     title: Attribute.Text;
-    description: Attribute.Blocks;
+    description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

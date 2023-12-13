@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "description": {
-      "type": "blocks"
-    },
     "image": {
       "type": "media",
       "multiple": false,
@@ -34,6 +31,9 @@
     },
     "youtube_link": {
       "type": "string"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }

@@ -4,25 +4,27 @@
   "info": {
     "singularName": "quran-class",
     "pluralName": "quran-classes",
-    "displayName": "quran class"
+    "displayName": "quran class",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "description": {
-      "type": "blocks"
-    },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "description": {
+      "type": "text"
     }
   }
 }
