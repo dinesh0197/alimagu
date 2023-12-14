@@ -14,7 +14,9 @@ module.exports = createCoreController('api::competition-outcome.competition-outc
     
         const extractedData = data.map(item => ({
             description: item?.attributes?.description,
-            title: item?.attributes?.title
+            title: item?.attributes?.title,
+            link: item?.attributes?.link,
+            image: item?.attributes?.image?.data?.attributes?.url
           }));
     
         return { data: extractedData, meta };

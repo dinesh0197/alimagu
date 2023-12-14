@@ -950,6 +950,8 @@ export interface ApiQuranChallengeQuranChallenge extends Schema.CollectionType {
   attributes: {
     image: Attribute.Media;
     description: Attribute.Text;
+    link: Attribute.String;
+    title: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -982,6 +984,8 @@ export interface ApiQuranClassQuranClass extends Schema.CollectionType {
   attributes: {
     image: Attribute.Media;
     description: Attribute.Text;
+    link: Attribute.String;
+    title: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1015,6 +1019,8 @@ export interface ApiQuranCompetitionQuranCompetition
   attributes: {
     image: Attribute.Media;
     description: Attribute.Text;
+    link: Attribute.String;
+    title: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
