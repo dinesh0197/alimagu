@@ -788,12 +788,142 @@ export interface ApiHomeHome extends Schema.CollectionType {
   attributes: {
     image: Attribute.Media;
     description: Attribute.Text;
+    home_event_and_programs: Attribute.Relation<
+      'api::home.home',
+      'oneToMany',
+      'api::home-event-and-program.home-event-and-program'
+    >;
+    home_newsletters: Attribute.Relation<
+      'api::home.home',
+      'oneToMany',
+      'api::home-newsletter.home-newsletter'
+    >;
+    home_membership: Attribute.Relation<
+      'api::home.home',
+      'oneToOne',
+      'api::home-membership.home-membership'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHomeEventAndProgramHomeEventAndProgram
+  extends Schema.CollectionType {
+  collectionName: 'home_event_and_programs';
+  info: {
+    singularName: 'home-event-and-program';
+    pluralName: 'home-event-and-programs';
+    displayName: 'home event&program';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.String;
+    image: Attribute.Media;
+    home: Attribute.Relation<
+      'api::home-event-and-program.home-event-and-program',
+      'manyToOne',
+      'api::home.home'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::home-event-and-program.home-event-and-program',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::home-event-and-program.home-event-and-program',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHomeMembershipHomeMembership extends Schema.CollectionType {
+  collectionName: 'home_memberships';
+  info: {
+    singularName: 'home-membership';
+    pluralName: 'home-memberships';
+    displayName: 'home membership';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    description: Attribute.String;
+    image: Attribute.Media;
+    membership_count: Attribute.Integer;
+    home: Attribute.Relation<
+      'api::home-membership.home-membership',
+      'oneToOne',
+      'api::home.home'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::home-membership.home-membership',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::home-membership.home-membership',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHomeNewsletterHomeNewsletter extends Schema.CollectionType {
+  collectionName: 'home_newsletters';
+  info: {
+    singularName: 'home-newsletter';
+    pluralName: 'home-newsletters';
+    displayName: 'home newsletter';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.String;
+    image: Attribute.Media;
+    home: Attribute.Relation<
+      'api::home-newsletter.home-newsletter',
+      'manyToOne',
+      'api::home.home'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::home-newsletter.home-newsletter',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::home-newsletter.home-newsletter',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -1127,6 +1257,9 @@ declare module '@strapi/types' {
       'api::competition-outcome.competition-outcome': ApiCompetitionOutcomeCompetitionOutcome;
       'api::contact.contact': ApiContactContact;
       'api::home.home': ApiHomeHome;
+      'api::home-event-and-program.home-event-and-program': ApiHomeEventAndProgramHomeEventAndProgram;
+      'api::home-membership.home-membership': ApiHomeMembershipHomeMembership;
+      'api::home-newsletter.home-newsletter': ApiHomeNewsletterHomeNewsletter;
       'api::membership.membership': ApiMembershipMembership;
       'api::news-letter.news-letter': ApiNewsLetterNewsLetter;
       'api::our-leadership.our-leadership': ApiOurLeadershipOurLeadership;

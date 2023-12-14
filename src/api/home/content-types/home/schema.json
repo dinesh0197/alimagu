@@ -25,6 +25,24 @@
     },
     "description": {
       "type": "text"
+    },
+    "home_event_and_programs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::home-event-and-program.home-event-and-program",
+      "mappedBy": "home"
+    },
+    "home_newsletters": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::home-newsletter.home-newsletter",
+      "mappedBy": "home"
+    },
+    "home_membership": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::home-membership.home-membership",
+      "mappedBy": "home"
     }
   }
 }

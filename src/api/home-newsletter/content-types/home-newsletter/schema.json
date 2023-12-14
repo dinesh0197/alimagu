@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "home_newsletters",
+  "info": {
+    "singularName": "home-newsletter",
+    "pluralName": "home-newsletters",
+    "displayName": "home newsletter",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "home": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::home.home",
+      "inversedBy": "home_newsletters"
+    }
+  }
+}
