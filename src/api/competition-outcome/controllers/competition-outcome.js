@@ -6,4 +6,17 @@
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::competition-outcome.competition-outcome');
+module.exports = createCoreController('api::competition-outcome.competition-outcome',({strapi})=>({
+    async find(ctx) {
+    
+        // Calling the default core action
+        const { data, meta } = await super.find(ctx);
+    
+        const extractedData = data.map(item => ({
+            description: item?.attributes?.description,
+            title: item?.attributes?.title
+          }));
+    
+        return { data: extractedData, meta };
+      },
+}));
