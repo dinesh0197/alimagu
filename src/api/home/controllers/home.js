@@ -13,7 +13,24 @@ module.exports = createCoreController('api::home.home',({strapi})=>({
         // const { data, meta } = await super.find(ctx);
 
         const data = await strapi.query('api::home.home').findMany({
-          populate: true,
+            populate: {
+              image: true,
+              home_event_and_programs: {
+                populate : {
+                  image: true
+                }
+              },
+              home_newsletters: {
+                populate : {
+                  image: true
+                }
+              },
+              home_membership: {
+                populate : {
+                  image: true
+                }
+              }
+            }
         });
         // const extractedData = data.map(item => ({
         //     main : {
