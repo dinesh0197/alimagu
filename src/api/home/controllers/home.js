@@ -37,14 +37,14 @@ module.exports = createCoreController('api::home.home',({strapi})=>({
                 description: item?.description,
                 image: item?.image?.url ? `${baseUrl}${item?.image?.url}`: null
             },
-            home_event_and_programs: item?.attributes?.home_event_and_programs?.data.map(events => ({
-                title: events?.attributes?.title,
-                description: events?.attributes?.description,
+            home_event_and_programs: item?.home_event_and_programs?.map(events => ({
+                title: events?.title,
+                description: events?.description,
                 image: events?.image?.url ? `${baseUrl}${item?.image?.url}`: null
             })),
-            home_newsletters: item?.attributes?.home_newsletters?.data.map(news => ({
-                title: news?.attributes?.title,
-                description: news?.attributes?.description,
+            home_newsletters: item?.home_newsletters?.map(news => ({
+                title: news?.title,
+                description: news?.description,
                 image: news?.image?.url ? `${baseUrl}${item?.image?.url}`: null
             })),
             home_membership: {
