@@ -1011,7 +1011,7 @@ export interface ApiOurLeadershipOurLeadership extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     role: Attribute.String;
-    avatar: Attribute.Media;
+    image: Attribute.Media;
     description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

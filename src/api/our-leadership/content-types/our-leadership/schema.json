@@ -18,7 +18,7 @@
     "role": {
       "type": "string"
     },
-    "avatar": {
+    "image": {
       "type": "media",
       "multiple": false,
       "required": false,

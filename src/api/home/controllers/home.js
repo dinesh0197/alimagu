@@ -9,8 +9,6 @@ const { createCoreController } = require('@strapi/strapi').factories;
 module.exports = createCoreController('api::home.home',({strapi})=>({
     async find(ctx) {
         const baseUrl = process.env.STRAPI_ADMIN_BASE_URL
-        // Calling the default core action
-        // const { data, meta } = await super.find(ctx);
 
         const data = await strapi.query('api::home.home').findMany({
             populate: {
