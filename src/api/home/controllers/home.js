@@ -32,29 +32,29 @@ module.exports = createCoreController('api::home.home',({strapi})=>({
               }
             }
         });
-        // const extractedData = data.map(item => ({
-        //     main : {
-        //         description: item?.attributes?.description,
-        //         image: item?.attributes?.image?.data?.attributes?.url ? `${baseUrl}${item?.attributes?.image?.data?.attributes?.url}`: null
-        //     },
-        //     home_event_and_programs: item?.attributes?.home_event_and_programs?.data.map(events => ({
-        //         title: events?.attributes?.title,
-        //         description: events?.attributes?.description,
-        //         image: item?.attributes?.image?.data?.attributes?.url ? `${baseUrl}${item?.attributes?.image?.data?.attributes?.url}`: null
-        //     })),
-        //     home_newsletters: item?.attributes?.home_newsletters?.data.map(events => ({
-        //         title: events?.attributes?.title,
-        //         description: events?.attributes?.description,
-        //         image: item?.attributes?.image?.data?.attributes?.url ? `${baseUrl}${item?.attributes?.image?.data?.attributes?.url}`: null
-        //     })),
-        //     home_membership: item?.attributes?.home_membership?.data.map(events => ({
-        //         title: events?.attributes?.title,
-        //         description: events?.attributes?.description,
-        //         image: item?.attributes?.image?.data?.attributes?.url ? `${baseUrl}${item?.attributes?.image?.data?.attributes?.url}`: null
-        //     })),
+        const extractedData = data.map(item => ({
+            main : {
+                description: item?.description,
+                image: item?.image?.url ? `${baseUrl}${item?.image?.url}`: null
+            },
+            home_event_and_programs: item?.attributes?.home_event_and_programs?.data.map(events => ({
+                title: events?.attributes?.title,
+                description: events?.attributes?.description,
+                image: events?.image?.url ? `${baseUrl}${item?.image?.url}`: null
+            })),
+            home_newsletters: item?.attributes?.home_newsletters?.data.map(news => ({
+                title: news?.attributes?.title,
+                description: news?.attributes?.description,
+                image: news?.image?.url ? `${baseUrl}${item?.image?.url}`: null
+            })),
+            home_membership: {
+              description: item?.home_membership?.description,
+              membership_count: item?.home_membership?.membership_count,
+              image: item?.home_membership?.image?.url ? `${baseUrl}${item?.home_membership?.image?.url}`: null
+            }
 
-        //   }));
+          }));
     
-        return { data: data };
+        return { data: extractedData };
       },
 }));

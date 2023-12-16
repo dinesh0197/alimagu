@@ -7,6 +7,10 @@ const config = {
       "app.components.LeftMenu.navbrand.workplace": "Dashboard",
     },
   },
+  tutorials	: false,
+  notifications: {
+    releases: false 
+  },
   locales: [
     // 'ar',
     // 'fr',
