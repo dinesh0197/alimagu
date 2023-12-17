@@ -4,7 +4,8 @@
   "info": {
     "singularName": "social-media",
     "pluralName": "social-medias",
-    "displayName": "social media"
+    "displayName": "social media",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -24,6 +25,9 @@
       "type": "string"
     },
     "messenger": {
+      "type": "string"
+    },
+    "youtube": {
       "type": "string"
     }
   }

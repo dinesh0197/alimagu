@@ -482,6 +482,99 @@ export interface PluginUploadFolder extends Schema.CollectionType {
   };
 }
 
+export interface PluginEmailDesignerEmailTemplate
+  extends Schema.CollectionType {
+  collectionName: 'email_templates';
+  info: {
+    singularName: 'email-template';
+    pluralName: 'email-templates';
+    displayName: 'Email-template';
+    name: 'email-template';
+  };
+  options: {
+    draftAndPublish: false;
+    timestamps: true;
+    increments: true;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    templateReferenceId: Attribute.Integer & Attribute.Unique;
+    design: Attribute.JSON;
+    name: Attribute.String;
+    subject: Attribute.String;
+    bodyHtml: Attribute.Text;
+    bodyText: Attribute.Text;
+    enabled: Attribute.Boolean & Attribute.DefaultTo<true>;
+    tags: Attribute.JSON;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::email-designer.email-template',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::email-designer.email-template',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginI18NLocale extends Schema.CollectionType {
+  collectionName: 'i18n_locale';
+  info: {
+    singularName: 'locale';
+    pluralName: 'locales';
+    collectionName: 'locales';
+    displayName: 'Locale';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetMinMax<{
+        min: 1;
+        max: 50;
+      }>;
+    code: Attribute.String & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUsersPermissionsPermission
   extends Schema.CollectionType {
   collectionName: 'up_permissions';
@@ -633,50 +726,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface PluginI18NLocale extends Schema.CollectionType {
-  collectionName: 'i18n_locale';
-  info: {
-    singularName: 'locale';
-    pluralName: 'locales';
-    collectionName: 'locales';
-    displayName: 'Locale';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    name: Attribute.String &
-      Attribute.SetMinMax<{
-        min: 1;
-        max: 50;
-      }>;
-    code: Attribute.String & Attribute.Unique;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::i18n.locale',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::i18n.locale',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiAboutUsAboutUs extends Schema.CollectionType {
   collectionName: 'about_uses';
   info: {
@@ -774,6 +823,41 @@ export interface ApiContactContact extends Schema.CollectionType {
   };
 }
 
+export interface ApiEducatorEducator extends Schema.CollectionType {
+  collectionName: 'educators';
+  info: {
+    singularName: 'educator';
+    pluralName: 'educators';
+    displayName: 'educator';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    approve: Attribute.Boolean & Attribute.DefaultTo<false>;
+    email: Attribute.Email;
+    nicId: Attribute.String;
+    firstName: Attribute.String;
+    lastName: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::educator.educator',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::educator.educator',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiHomeHome extends Schema.CollectionType {
   collectionName: 'homes';
   info: {
@@ -834,6 +918,7 @@ export interface ApiHomeEventAndProgramHomeEventAndProgram
       'manyToOne',
       'api::home.home'
     >;
+    navigation_link: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -921,6 +1006,41 @@ export interface ApiHomeNewsletterHomeNewsletter extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::home-newsletter.home-newsletter',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiInstitutionInstitution extends Schema.CollectionType {
+  collectionName: 'institutions';
+  info: {
+    singularName: 'institution';
+    pluralName: 'institutions';
+    displayName: 'Institution';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    email: Attribute.Email;
+    approve: Attribute.Boolean & Attribute.DefaultTo<false>;
+    nicId: Attribute.String;
+    firstName: Attribute.String;
+    lastName: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::institution.institution',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::institution.institution',
       'oneToOne',
       'admin::user'
     > &
@@ -1209,6 +1329,7 @@ export interface ApiSocialMediaSocialMedia extends Schema.CollectionType {
     singularName: 'social-media';
     pluralName: 'social-medias';
     displayName: 'social media';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1219,6 +1340,7 @@ export interface ApiSocialMediaSocialMedia extends Schema.CollectionType {
     instagram: Attribute.String;
     whatsapp: Attribute.String;
     messenger: Attribute.String;
+    youtube: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1249,17 +1371,20 @@ declare module '@strapi/types' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
+      'plugin::email-designer.email-template': PluginEmailDesignerEmailTemplate;
+      'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'plugin::i18n.locale': PluginI18NLocale;
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::competition-outcome.competition-outcome': ApiCompetitionOutcomeCompetitionOutcome;
       'api::contact.contact': ApiContactContact;
+      'api::educator.educator': ApiEducatorEducator;
       'api::home.home': ApiHomeHome;
       'api::home-event-and-program.home-event-and-program': ApiHomeEventAndProgramHomeEventAndProgram;
       'api::home-membership.home-membership': ApiHomeMembershipHomeMembership;
       'api::home-newsletter.home-newsletter': ApiHomeNewsletterHomeNewsletter;
+      'api::institution.institution': ApiInstitutionInstitution;
       'api::membership.membership': ApiMembershipMembership;
       'api::news-letter.news-letter': ApiNewsLetterNewsLetter;
       'api::our-leadership.our-leadership': ApiOurLeadershipOurLeadership;

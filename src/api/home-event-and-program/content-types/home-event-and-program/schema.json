@@ -34,6 +34,9 @@
       "relation": "manyToOne",
       "target": "api::home.home",
       "inversedBy": "home_event_and_programs"
+    },
+    "navigation_link": {
+      "type": "string"
     }
   }
 }
