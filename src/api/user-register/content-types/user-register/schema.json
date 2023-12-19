@@ -1,0 +1,89 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_registers",
+  "info": {
+    "singularName": "user-register",
+    "pluralName": "user-registers",
+    "displayName": "user register"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "register_type": {
+      "type": "enumeration",
+      "enum": [
+        "student",
+        "teacher"
+      ]
+    },
+    "NICNo": {
+      "type": "string"
+    },
+    "password": {
+      "type": "password"
+    },
+    "email": {
+      "type": "email"
+    },
+    "name": {
+      "type": "string"
+    },
+    "DOB": {
+      "type": "date"
+    },
+    "permanent_address": {
+      "type": "text"
+    },
+    "nationality": {
+      "type": "string"
+    },
+    "country_of_residence": {
+      "type": "string"
+    },
+    "mobile_no": {
+      "type": "string"
+    },
+    "alternate_contact_no": {
+      "type": "string"
+    },
+    "emergency_contact_no": {
+      "type": "string"
+    },
+    "emergency_relation_no": {
+      "type": "string"
+    },
+    "occupation_or_profession": {
+      "type": "string"
+    },
+    "school_or_college": {
+      "type": "string"
+    },
+    "parent_name": {
+      "type": "string"
+    },
+    "parent_contact_no": {
+      "type": "string"
+    },
+    "parent_password": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "text"
+    },
+    "cancelled": {
+      "type": "boolean"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "pending_admission ",
+        "on_going ",
+        "completed ",
+        "suspended ",
+        "terminated"
+      ]
+    }
+  }
+}

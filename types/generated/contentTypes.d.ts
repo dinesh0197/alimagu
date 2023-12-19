@@ -1359,6 +1359,64 @@ export interface ApiSocialMediaSocialMedia extends Schema.CollectionType {
   };
 }
 
+export interface ApiUserRegisterUserRegister extends Schema.CollectionType {
+  collectionName: 'user_registers';
+  info: {
+    singularName: 'user-register';
+    pluralName: 'user-registers';
+    displayName: 'user register';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    register_type: Attribute.Enumeration<['student', 'teacher']>;
+    NICNo: Attribute.String;
+    password: Attribute.Password;
+    email: Attribute.Email;
+    name: Attribute.String;
+    DOB: Attribute.Date;
+    permanent_address: Attribute.Text;
+    nationality: Attribute.String;
+    country_of_residence: Attribute.String;
+    mobile_no: Attribute.String;
+    alternate_contact_no: Attribute.String;
+    emergency_contact_no: Attribute.String;
+    emergency_relation_no: Attribute.String;
+    occupation_or_profession: Attribute.String;
+    school_or_college: Attribute.String;
+    parent_name: Attribute.String;
+    parent_contact_no: Attribute.String;
+    parent_password: Attribute.String;
+    notes: Attribute.Text;
+    cancelled: Attribute.Boolean;
+    status: Attribute.Enumeration<
+      [
+        'pending_admission ',
+        'on_going ',
+        'completed ',
+        'suspended ',
+        'terminated'
+      ]
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::user-register.user-register',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::user-register.user-register',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1394,6 +1452,7 @@ declare module '@strapi/types' {
       'api::quran-competition.quran-competition': ApiQuranCompetitionQuranCompetition;
       'api::seminars-workshop.seminars-workshop': ApiSeminarsWorkshopSeminarsWorkshop;
       'api::social-media.social-media': ApiSocialMediaSocialMedia;
+      'api::user-register.user-register': ApiUserRegisterUserRegister;
     }
   }
 }
