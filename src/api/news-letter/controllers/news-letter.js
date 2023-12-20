@@ -25,17 +25,16 @@ module.exports = createCoreController(
     },
 
     async findOne(ctx) {
+      const id = ctx.params.id;
       const data = await strapi.query("api::news-letter.news-letter").findOne({
+        where: { id },
         populate: {
           image: true,
         },
       });
-      const extractedData = {
-        ...data,
-        image: data?.image?.url ? `${baseUrl}${data?.image?.url}` : null,
-      };
+      data?.image?.url && (data.image = `${baseUrl}${data?.image?.url}`);
 
-      return extractedData || {};
+      return data || {};
     },
   })
 );
