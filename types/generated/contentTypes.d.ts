@@ -805,12 +805,6 @@ export interface ApiContactContact extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String;
-    email: Attribute.Email;
-    country: Attribute.String;
-    contact_no: Attribute.String;
-    subject: Attribute.String;
-    message: Attribute.Text;
     office_address: Attribute.Text;
     office_number: Attribute.String;
     office_title: Attribute.String;
@@ -830,6 +824,43 @@ export interface ApiContactContact extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::contact.contact',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiContactRegisterContactRegister
+  extends Schema.CollectionType {
+  collectionName: 'contact_registers';
+  info: {
+    singularName: 'contact-register';
+    pluralName: 'contact-registers';
+    displayName: 'contact register';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    email: Attribute.Email;
+    country: Attribute.String;
+    conatct_no: Attribute.String;
+    subject: Attribute.String;
+    message: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact-register.contact-register',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contact-register.contact-register',
       'oneToOne',
       'admin::user'
     > &
@@ -1308,6 +1339,7 @@ declare module '@strapi/types' {
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::competition-outcome.competition-outcome': ApiCompetitionOutcomeCompetitionOutcome;
       'api::contact.contact': ApiContactContact;
+      'api::contact-register.contact-register': ApiContactRegisterContactRegister;
       'api::home-event-and-program.home-event-and-program': ApiHomeEventAndProgramHomeEventAndProgram;
       'api::institution.institution': ApiInstitutionInstitution;
       'api::membership.membership': ApiMembershipMembership;

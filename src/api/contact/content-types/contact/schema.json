@@ -12,24 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
-      "type": "string"
-    },
-    "email": {
-      "type": "email"
-    },
-    "country": {
-      "type": "string"
-    },
-    "contact_no": {
-      "type": "string"
-    },
-    "subject": {
-      "type": "string"
-    },
-    "message": {
-      "type": "text"
-    },
     "office_address": {
       "type": "text"
     },
