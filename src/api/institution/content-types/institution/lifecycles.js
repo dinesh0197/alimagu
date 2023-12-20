@@ -27,7 +27,7 @@ module.exports = {
             },
             {
               // this object must include all variables you're using in your email template
-              educatorName: `${firstName || ""} ${lastName || ""}`,
+              userName: `${firstName || ""} ${lastName || ""}`,
             }
           );
       }

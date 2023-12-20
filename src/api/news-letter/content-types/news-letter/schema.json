@@ -4,7 +4,7 @@
   "info": {
     "singularName": "news-letter",
     "pluralName": "news-letters",
-    "displayName": "news letter",
+    "displayName": "news ",
     "description": ""
   },
   "options": {
@@ -34,6 +34,9 @@
     },
     "description": {
       "type": "text"
+    },
+    "published_by": {
+      "type": "string"
     }
   }
 }

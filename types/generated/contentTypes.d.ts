@@ -740,6 +740,8 @@ export interface ApiAboutUsAboutUs extends Schema.CollectionType {
   attributes: {
     image: Attribute.Media;
     description: Attribute.Text;
+    home_description: Attribute.Text;
+    home_image: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -796,103 +798,41 @@ export interface ApiContactContact extends Schema.CollectionType {
   info: {
     singularName: 'contact';
     pluralName: 'contacts';
-    displayName: 'contact';
+    displayName: 'contact us';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    image: Attribute.Media;
-    description: Attribute.Text;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::contact.contact',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::contact.contact',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiEducatorEducator extends Schema.CollectionType {
-  collectionName: 'educators';
-  info: {
-    singularName: 'educator';
-    pluralName: 'educators';
-    displayName: 'educator';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    approve: Attribute.Boolean & Attribute.DefaultTo<false>;
+    name: Attribute.String;
     email: Attribute.Email;
-    nicId: Attribute.String;
-    firstName: Attribute.String;
-    lastName: Attribute.String;
+    country: Attribute.String;
+    contact_no: Attribute.String;
+    subject: Attribute.String;
+    message: Attribute.Text;
+    office_address: Attribute.Text;
+    office_number: Attribute.String;
+    office_title: Attribute.String;
+    office_email: Attribute.Email;
+    head_office_title: Attribute.String;
+    head_office_number: Attribute.String;
+    head_office_address: Attribute.Text;
+    head_office_email: Attribute.Email;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::educator.educator',
+      'api::contact.contact',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::educator.educator',
+      'api::contact.contact',
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiHomeHome extends Schema.CollectionType {
-  collectionName: 'homes';
-  info: {
-    singularName: 'home';
-    pluralName: 'homes';
-    displayName: 'Home ';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    image: Attribute.Media;
-    description: Attribute.Text;
-    home_event_and_programs: Attribute.Relation<
-      'api::home.home',
-      'oneToMany',
-      'api::home-event-and-program.home-event-and-program'
-    >;
-    home_newsletters: Attribute.Relation<
-      'api::home.home',
-      'oneToMany',
-      'api::home-newsletter.home-newsletter'
-    >;
-    home_membership: Attribute.Relation<
-      'api::home.home',
-      'oneToOne',
-      'api::home-membership.home-membership'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -903,7 +843,7 @@ export interface ApiHomeEventAndProgramHomeEventAndProgram
   info: {
     singularName: 'home-event-and-program';
     pluralName: 'home-event-and-programs';
-    displayName: 'home event&program';
+    displayName: 'events & program';
     description: '';
   };
   options: {
@@ -913,11 +853,6 @@ export interface ApiHomeEventAndProgramHomeEventAndProgram
     title: Attribute.String;
     description: Attribute.String;
     image: Attribute.Media;
-    home: Attribute.Relation<
-      'api::home-event-and-program.home-event-and-program',
-      'manyToOne',
-      'api::home.home'
-    >;
     navigation_link: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -937,82 +872,6 @@ export interface ApiHomeEventAndProgramHomeEventAndProgram
   };
 }
 
-export interface ApiHomeMembershipHomeMembership extends Schema.CollectionType {
-  collectionName: 'home_memberships';
-  info: {
-    singularName: 'home-membership';
-    pluralName: 'home-memberships';
-    displayName: 'home membership';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    description: Attribute.String;
-    image: Attribute.Media;
-    membership_count: Attribute.Integer;
-    home: Attribute.Relation<
-      'api::home-membership.home-membership',
-      'oneToOne',
-      'api::home.home'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::home-membership.home-membership',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::home-membership.home-membership',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiHomeNewsletterHomeNewsletter extends Schema.CollectionType {
-  collectionName: 'home_newsletters';
-  info: {
-    singularName: 'home-newsletter';
-    pluralName: 'home-newsletters';
-    displayName: 'home newsletter';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String;
-    description: Attribute.String;
-    image: Attribute.Media;
-    home: Attribute.Relation<
-      'api::home-newsletter.home-newsletter',
-      'manyToOne',
-      'api::home.home'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::home-newsletter.home-newsletter',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::home-newsletter.home-newsletter',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiInstitutionInstitution extends Schema.CollectionType {
   collectionName: 'institutions';
   info: {
@@ -1025,11 +884,21 @@ export interface ApiInstitutionInstitution extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    email: Attribute.Email;
-    approve: Attribute.Boolean & Attribute.DefaultTo<false>;
-    nicId: Attribute.String;
-    firstName: Attribute.String;
-    lastName: Attribute.String;
+    InstituteEmail: Attribute.Email;
+    InstituteActive: Attribute.Boolean & Attribute.DefaultTo<false>;
+    InstituteRegNo: Attribute.String;
+    InstituteID: Attribute.String;
+    InstituteName: Attribute.String;
+    InstituteCountry: Attribute.String;
+    InstituteHead: Attribute.String;
+    InstituteContactNo1: Attribute.String;
+    InstituteContactNo2: Attribute.String;
+    InstituteContactPerson: Attribute.String;
+    InstituteUser1Name: Attribute.String;
+    InstituteUser1Password: Attribute.String;
+    InstituteUser2Name: Attribute.String;
+    InstituteUser2Password: Attribute.String;
+    InstituteNotes: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1087,7 +956,7 @@ export interface ApiNewsLetterNewsLetter extends Schema.CollectionType {
   info: {
     singularName: 'news-letter';
     pluralName: 'news-letters';
-    displayName: 'news letter';
+    displayName: 'news ';
     description: '';
   };
   options: {
@@ -1099,6 +968,7 @@ export interface ApiNewsLetterNewsLetter extends Schema.CollectionType {
     release_date: Attribute.Date;
     youtube_link: Attribute.String;
     description: Attribute.Text;
+    published_by: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1364,7 +1234,8 @@ export interface ApiUserRegisterUserRegister extends Schema.CollectionType {
   info: {
     singularName: 'user-register';
     pluralName: 'user-registers';
-    displayName: 'user register';
+    displayName: 'Student/Teacher register';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1392,7 +1263,7 @@ export interface ApiUserRegisterUserRegister extends Schema.CollectionType {
     cancelled: Attribute.Boolean;
     status: Attribute.Enumeration<
       [
-        'pending_admission ',
+        'pending admission ',
         'on_going ',
         'completed ',
         'suspended ',
@@ -1437,11 +1308,7 @@ declare module '@strapi/types' {
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::competition-outcome.competition-outcome': ApiCompetitionOutcomeCompetitionOutcome;
       'api::contact.contact': ApiContactContact;
-      'api::educator.educator': ApiEducatorEducator;
-      'api::home.home': ApiHomeHome;
       'api::home-event-and-program.home-event-and-program': ApiHomeEventAndProgramHomeEventAndProgram;
-      'api::home-membership.home-membership': ApiHomeMembershipHomeMembership;
-      'api::home-newsletter.home-newsletter': ApiHomeNewsletterHomeNewsletter;
       'api::institution.institution': ApiInstitutionInstitution;
       'api::membership.membership': ApiMembershipMembership;
       'api::news-letter.news-letter': ApiNewsLetterNewsLetter;

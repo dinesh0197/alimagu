@@ -4,7 +4,7 @@
   "info": {
     "singularName": "home-event-and-program",
     "pluralName": "home-event-and-programs",
-    "displayName": "home event&program",
+    "displayName": "events & program",
     "description": ""
   },
   "options": {
@@ -28,12 +28,6 @@
         "videos",
         "audios"
       ]
-    },
-    "home": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::home.home",
-      "inversedBy": "home_event_and_programs"
     },
     "navigation_link": {
       "type": "string"

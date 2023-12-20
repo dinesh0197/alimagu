@@ -12,21 +12,51 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "email": {
+    "InstituteEmail": {
       "type": "email"
     },
-    "approve": {
+    "InstituteActive": {
       "type": "boolean",
       "default": false
     },
-    "nicId": {
+    "InstituteRegNo": {
       "type": "string"
     },
-    "firstName": {
+    "InstituteID": {
       "type": "string"
     },
-    "lastName": {
+    "InstituteName": {
       "type": "string"
+    },
+    "InstituteCountry": {
+      "type": "string"
+    },
+    "InstituteHead": {
+      "type": "string"
+    },
+    "InstituteContactNo1": {
+      "type": "string"
+    },
+    "InstituteContactNo2": {
+      "type": "string"
+    },
+    "InstituteContactPerson": {
+      "type": "string"
+    },
+    "InstituteUser1Name": {
+      "type": "string"
+    },
+    "InstituteUser1Password": {
+      "type": "string"
+    },
+    "InstituteUser2Name": {
+      "type": "string"
+    },
+    "InstituteUser2Password": {
+      "type": "string"
+    },
+    "InstituteNotes": {
+      "type": "text"
     }
   }
 }

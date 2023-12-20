@@ -4,7 +4,7 @@
   "info": {
     "singularName": "contact",
     "pluralName": "contacts",
-    "displayName": "contact",
+    "displayName": "contact us",
     "description": ""
   },
   "options": {
@@ -12,19 +12,47 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+    "name": {
+      "type": "string"
     },
-    "description": {
+    "email": {
+      "type": "email"
+    },
+    "country": {
+      "type": "string"
+    },
+    "contact_no": {
+      "type": "string"
+    },
+    "subject": {
+      "type": "string"
+    },
+    "message": {
       "type": "text"
+    },
+    "office_address": {
+      "type": "text"
+    },
+    "office_number": {
+      "type": "string"
+    },
+    "office_title": {
+      "type": "string"
+    },
+    "office_email": {
+      "type": "email"
+    },
+    "head_office_title": {
+      "type": "string"
+    },
+    "head_office_number": {
+      "type": "string"
+    },
+    "head_office_address": {
+      "type": "text"
+    },
+    "head_office_email": {
+      "type": "email"
     }
   }
 }

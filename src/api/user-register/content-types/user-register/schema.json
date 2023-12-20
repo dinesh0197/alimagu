@@ -4,7 +4,8 @@
   "info": {
     "singularName": "user-register",
     "pluralName": "user-registers",
-    "displayName": "user register"
+    "displayName": "Student/Teacher register",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -78,7 +79,7 @@
     "status": {
       "type": "enumeration",
       "enum": [
-        "pending_admission ",
+        "pending admission ",
         "on_going ",
         "completed ",
         "suspended ",
