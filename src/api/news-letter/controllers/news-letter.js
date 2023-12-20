@@ -21,7 +21,7 @@ module.exports = createCoreController(
         image: item?.image?.url ? `${baseUrl}${item?.image?.url}` : null,
       }));
 
-      return extractedData ;
+      return extractedData;
     },
 
     async findOne(ctx) {
@@ -30,12 +30,12 @@ module.exports = createCoreController(
           image: true,
         },
       });
-      const extractedData = data.map((item) => ({
-        ...item,
-        image: item?.image?.url ? `${baseUrl}${item?.image?.url}` : null,
-      }));
+      const extractedData = {
+        ...data,
+        image: data?.image?.url ? `${baseUrl}${data?.image?.url}` : null,
+      };
 
-      return extractedData ;
+      return extractedData || {};
     },
   })
 );
